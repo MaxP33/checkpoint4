@@ -1,0 +1,7 @@
+vich_uploader:
+    db_driver: orm
+
+    mappings:
+        event_file:
+            uri_prefix: /images/events
+            upload_destination: '%upload_directory%'
