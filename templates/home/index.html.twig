@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+    {% include '_nav.html.twig' %}
+    <div class="img-container-fluid">
+        <img class="d-block w-100 banner-image" src="{{ asset('build/images/background.jpg') }}" alt="circus">
+    </div>
+    <div class="d-flex align-items-center flex-column my-2">
+        <h1>Notre histoire</h1>
+        <p class="w-50 text-justify">
+            Le Wild Circus c’est l’histoire d’une fantastique aventure humaine portée par de jeunes artistes et
+            créatifs, amoureux des arts vivants. Une volonté indéfectible de mettre un savoir-faire acquis depuis plus
+            de 20 ans au service du renouvellement du grand spectacle en France.
+        </p>
+    </div>
+{% endblock %}
