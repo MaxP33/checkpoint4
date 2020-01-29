@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des numéros{% endblock %}
+
+{% block body %}
+    <h1>Liste des numéros</h1>
+    <a class="btn ml-1 mb-3" href="{{ path('act_new') }}">Créer un  numéro</a>
+    <a class="btn mb-3" href="{{ path('admin_index') }}">Pas d'accueil</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Description</th>
+                <th>Date de création</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for act in acts %}
+            <tr>
+                <td>{{ act.id }}</td>
+                <td>{{ act.name }}</td>
+                <td>{{ act.description }}</td>
+                <td>{{ act.createdAt ? act.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('act_show', {'id': act.id}) }}"><i class="far fa-eye"></i></a>
+                    <a href="{{ path('act_edit', {'id': act.id}) }}"><i class="far fa-edit"></i></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">Aucun numéro trouvé</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

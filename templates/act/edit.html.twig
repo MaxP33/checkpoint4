@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Editer un numéro{% endblock %}
+
+{% block body %}
+    <h1>Editer</h1>
+
+    {{ include('act/_form.html.twig', {'button_label': 'Modifier'}) }}
+
+    <div class="d-flex mt-4">
+        {{ include('act/_delete_form.html.twig') }}
+        <a class="btn ml-3" href="{{ path('act_index') }}">Liste des numéros</a>
+    </div>
+{% endblock %}
