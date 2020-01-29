@@ -6,6 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ActRepository")
+ * @ORM\HasLifecycleCallbacks
  */
 class Act
 {
@@ -70,5 +71,14 @@ class Act
         $this->createdAt = $createdAt;
 
         return $this;
+    }
+    /**
+     * @ORM\PrePersist
+     */
+    public function handleCreationDate()
+    {
+        if ($this->getCreatedAt() === null) {
+            $this->setCreatedAt(new \DateTimeImmutable());
+        }
     }
 }
