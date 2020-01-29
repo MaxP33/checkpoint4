@@ -3,3 +3,11 @@
 @import "home";
 @import "nav";
 @import "login";
+@import "admin";
+@import "event";
+.btn {
+  background-color: $gold;
+  color: $white;
+  font-family: $helvetica;
+  font-weight: bold;
+}
