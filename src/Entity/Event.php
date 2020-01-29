@@ -5,6 +5,8 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\EventRepository")
@@ -48,6 +50,15 @@ class Event
      * @ORM\ManyToMany(targetEntity="App\Entity\Price", mappedBy="events")
      */
     private $prices;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $eventImgName;
+    /**
+     * @Vich\UploadableField(mapping="event_file", fileNameProperty="eventImgName")
+     */
+    private $eventFile;
 
     public function __construct()
     {
@@ -155,5 +166,35 @@ class Event
         }
 
         return $this;
+    }
+
+    public function getEventImgName(): ?string
+    {
+        return $this->eventImgName;
+    }
+
+    public function setEventImgName(string $eventImgName): self
+    {
+        $this->eventImgName = $eventImgName;
+
+        return $this;
+    }
+
+    /**
+     * @param File|null $image
+     * @return Event
+     */
+    public function setEventFile(File $image = null): Event
+    {
+        $this->eventFile = $image;
+        return $this;
+    }
+
+    /**
+     * @return null|File
+     */
+    public function getPosterFile(): ?File
+    {
+        return $this->eventFile;
     }
 }
