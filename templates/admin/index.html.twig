@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Admin{% endblock %}
+
+{% block body %}
+    {% include 'admin/_nav_admin.html.twig' %}
+    <div class="container admin-home-cards row d-flex justify-content-center mx-auto">
+        <div class="col-sm-10 col-lg-5">
+            <div class="card">
+                <a href=""><img class="card-img-top" src="{{ asset('build/images/event.jpg') }}" alt="Card image cap"></a>
+                <div class="card-body d-flex justify-content-center">
+                    <h3 class="card-title">Évènements</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-10 col-lg-5">
+            <div class="card">
+                <a href=""><img class="card-img-top" src="{{ asset('build/images/act.jpg') }}" alt="Card image cap"></a>
+                <div class="card-body d-flex justify-content-center">
+                    <h3 class="card-title">Numéros</h3>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+{% endblock %}
