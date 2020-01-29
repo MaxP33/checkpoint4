@@ -1,0 +1,21 @@
+.background-login {
+  background-image: url('../images/login.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  .container-login-form {
+    padding-top: 12rem;
+    .login-inputs {
+      background-color: rgba(0, 0, 0, 0.3);
+      color: $gold;
+      font-family: $helvetica;
+      font-weight: bold;
+      .login-btn {
+        background-color: $gold;
+        color: $white;
+        font-family: $helvetica;
+        font-weight: bold;
+      }
+    }
+  }
+}
