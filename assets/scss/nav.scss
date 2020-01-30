@@ -1,9 +1,12 @@
 nav {
+  .navbar-brand {
+    font-size: 1.7rem;
+  }
   background-color: rgba(238, 239, 240, 0.4);
   & a {
     text-decoration: none;
     color: $gold;
-    font-size: larger;
+    font-size: 1.4rem;
     &:hover {
       color: $black;
     }
