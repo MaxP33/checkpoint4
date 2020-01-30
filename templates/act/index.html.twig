@@ -12,6 +12,7 @@
                 <th>Id</th>
                 <th>Nom</th>
                 <th>Description</th>
+                <th>Image</th>
                 <th>Date de création</th>
                 <th>Actions</th>
             </tr>
@@ -22,6 +23,7 @@
                 <td>{{ act.id }}</td>
                 <td>{{ act.name }}</td>
                 <td>{{ act.description }}</td>
+                <td>{{ act.actImgName }}</td>
                 <td>{{ act.createdAt ? act.createdAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>
                     <a href="{{ path('act_show', {'id': act.id}) }}"><i class="far fa-eye"></i></a>
