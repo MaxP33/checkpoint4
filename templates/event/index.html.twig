@@ -27,10 +27,10 @@
                 <td>{{ event.location }}</td>
                 <td>{{ event.description }}</td>
                 <td>{{ event.eventImgName }}</td>
-                <td>{{ event.startDate ? event.startDate|date('Y-m-d') : '' }}</td>
-                <td>{{ event.endDate ? event.startDate|date('Y-m-d') : '' }}</td>
+                <td>{{ event.startDate ? event.startDate|date('d-m-Y') : '' }}</td>
+                <td>{{ event.endDate ? event.endDate|date('d-m-Y') : '' }}</td>
                 <td>{{ event.duration }}</td>
-                <td>{{ event.createdAt ? event.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ event.createdAt ? event.createdAt|date('d-m-Y H:i:s') : '' }}</td>
                 <td>
                     <a href="{{ path('event_show', {'id': event.id}) }}"><i class="far fa-eye"></i></a>
                     <a href="{{ path('event_edit', {'id': event.id}) }}"><i class="far fa-edit"></i></a>
