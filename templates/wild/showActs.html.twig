@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Programme{% endblock %}
+
+{% block body %}
+    {% include '_nav.html.twig' %}
+    <h1 class="container mx-auto mt-4">Programme</h1>
+    <div class="container admin-home-cards row d-flex justify-content-center mx-auto mt-4 pl-0">
+    {% for act in acts %}
+        <div class="col-sm-9 col-lg-4 mb-5">
+            <div class="card">
+                <img class="card-img-top" src="/uploads/{{ act.actImgName }}" alt="Card image cap">
+                <div class="card-body d-flex justify-content-center align-items-start flex-column">
+                    <h3 class="card-title">{{ act.name }}</h3>
+                    <p class="card-text">{{ act.description }}</p>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+{% endblock %}
