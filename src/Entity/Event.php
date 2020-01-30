@@ -2,15 +2,18 @@
 
 namespace App\Entity;
 
+use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\EventRepository")
  * @ORM\HasLifecycleCallbacks
+ * @Vich\Uploadable
  */
 class Event
 {
@@ -59,6 +62,11 @@ class Event
      * @Vich\UploadableField(mapping="event_file", fileNameProperty="eventImgName")
      */
     private $eventFile;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $updatedAt;
 
     public function __construct()
     {
@@ -187,14 +195,36 @@ class Event
     public function setEventFile(File $image = null): Event
     {
         $this->eventFile = $image;
+        if ($this->eventFile instanceof UploadedFile) {
+            $this->updatedAt = new DateTime();
+        }
         return $this;
     }
 
     /**
      * @return null|File
      */
-    public function getPosterFile(): ?File
+    public function getEventFile(): ?File
     {
         return $this->eventFile;
+    }
+
+    public function getUpdatedAt(): ?\DateTimeInterface
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(\DateTimeInterface $updatedAt): self
+    {
+        $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+    /**
+     * @ORM\PreUpdate
+     */
+    public function handleUpdateDate()
+    {
+        $this->setUpdatedAt(new \DateTimeImmutable());
     }
 }

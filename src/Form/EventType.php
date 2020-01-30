@@ -7,8 +7,10 @@ use App\Entity\Price;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\File;
 
 class EventType extends AbstractType
 {
@@ -34,7 +36,21 @@ class EventType extends AbstractType
                 'by_reference' => false,
 
             ])
-        ;
+            ->add('eventFile', FileType::class, [
+                'label' => 'Image de l\'évènement',
+                'required' => false,
+                'constraints' => [
+                    new File([
+                        'maxSize' => '2000k',
+                        'mimeTypes' => [
+                            'image/jpeg',
+                            'image/png',
+                            'application/pdf'
+                        ],
+                        'mimeTypesMessage' => 'Formats de fichier acceptés : Jpeg, Png, Pdf',
+                    ])
+                ],
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)
