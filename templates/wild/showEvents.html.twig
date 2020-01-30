@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello WildController!{% endblock %}
+
+{% block body %}
+    {% include '_nav.html.twig' %}
+    <h1 class="container mx-auto mt-4">Agenda</h1>
+    <div class="container admin-home-cards row d-flex justify-content-center mx-auto mt-4 pl-0">
+    {% for event in events %}
+        {% if event.endDate|date("Y-m-d") >= "now"|date("Y-m-d") %}
+        <div class="col-sm-9 col-lg-4 mb-5">
+            <div class="card">
+                <img class="card-img-top" src="/uploads/{{ event.eventImgName }}" alt="Card image cap">
+                <div class="card-body d-flex justify-content-center align-items-start flex-column">
+                    <h3 class="card-title">{{ event.location }}</h3>
+                    <p class="card-text">{{ event.description }}</p>
+                    <div class="d-flex flex-row"> Prix:
+                    {% for price in event.prices %}
+                        {{ price.name }} {{ price.price }} € |
+                    {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    {% endfor %}
+    </div>
+{% endblock %}
