@@ -10,11 +10,12 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Nom</th>
-                <th>Description</th>
                 <th>Lieu</th>
+                <th>Description</th>
                 <th>Image</th>
-                <th>Date du spectable</th>
+                <th>Date de début</th>
+                <th>Date de fin</th>
+                <th>Durée</th>
                 <th>Date création évènement</th>
                 <th>Actions</th>
             </tr>
@@ -23,11 +24,12 @@
         {% for event in events %}
             <tr>
                 <td>{{ event.id }}</td>
-                <td>{{ event.name }}</td>
-                <td>{{ event.description }}</td>
                 <td>{{ event.location }}</td>
+                <td>{{ event.description }}</td>
                 <td>{{ event.eventImgName }}</td>
-                <td>{{ event.performDate ? event.performDate|date('Y-m-d') : '' }}</td>
+                <td>{{ event.startDate ? event.startDate|date('Y-m-d') : '' }}</td>
+                <td>{{ event.endDate ? event.startDate|date('Y-m-d') : '' }}</td>
+                <td>{{ event.duration }}</td>
                 <td>{{ event.createdAt ? event.createdAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>
                     <a href="{{ path('event_show', {'id': event.id}) }}"><i class="far fa-eye"></i></a>

@@ -17,17 +17,19 @@ class EventType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name', null, [
-                'label' => 'Nom'
-            ])
-            ->add('description')
             ->add('location', null, [
                 'label' => 'Lieu',
             ])
-            ->add('performDate', DateType::class, [
+            ->add('description')
+            ->add('startDate', DateType::class, [
                 'widget'      => 'single_text',
-                'label'       => 'Date du spectacle'
+                'label'       => 'Date de début'
             ])
+            ->add('endDate', DateType::class, [
+                'widget'      => 'single_text',
+                'label'       => 'Date de fin'
+            ])
+            ->add('duration')
             ->add('prices', EntityType::class, [
                 'class' => Price::class,
                 'choice_label' => 'name',

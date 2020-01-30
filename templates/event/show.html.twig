@@ -12,23 +12,27 @@
                 <td>{{ event.id }}</td>
             </tr>
             <tr>
-                <th>Name</th>
-                <td>{{ event.name }}</td>
+                <th>Lieu</th>
+                <td>{{ event.location }}</td>
             </tr>
             <tr>
                 <th>Description</th>
                 <td>{{ event.description }}</td>
             </tr>
             <tr>
-                <th>Location</th>
-                <td>{{ event.location }}</td>
+                <th>Date de début</th>
+                <td>{{ event.startDate ? event.startDate|date('Y-m-d') : '' }}</td>
             </tr>
             <tr>
-                <th>PerformDate</th>
-                <td>{{ event.performDate ? event.performDate|date('Y-m-d') : '' }}</td>
+                <th>Date de fin</th>
+                <td>{{ event.endDate ? event.endDate|date('Y-m-d') : '' }}</td>
             </tr>
             <tr>
-                <th>CreatedAt</th>
+                <th>Durée</th>
+                <td>{{ event.duration }}</td>
+            </tr>
+            <tr>
+                <th>Date de création de l'évènement</th>
                 <td>{{ event.createdAt ? event.createdAt|date('Y-m-d H:i:s') : '' }}</td>
             </tr>
         </tbody>

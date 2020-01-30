@@ -27,22 +27,24 @@ class Event
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $name;
-
+    private $location;
     /**
      * @ORM\Column(type="string", length=255)
      */
     private $description;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="date")
      */
-    private $location;
-
+    private $startDate;
     /**
      * @ORM\Column(type="date")
      */
-    private $performDate;
+    private $endDate;
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $duration;
 
     /**
      * @ORM\Column(type="datetime")
@@ -55,7 +57,7 @@ class Event
     private $prices;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $eventImgName;
     /**
@@ -76,18 +78,6 @@ class Event
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getName(): ?string
-    {
-        return $this->name;
-    }
-
-    public function setName(string $name): self
-    {
-        $this->name = $name;
-
-        return $this;
     }
 
     public function getDescription(): ?string
@@ -114,14 +104,37 @@ class Event
         return $this;
     }
 
-    public function getPerformDate(): ?\DateTimeInterface
+    public function getStartDate(): ?\DateTimeInterface
     {
-        return $this->performDate;
+        return $this->startDate;
     }
 
-    public function setPerformDate(\DateTimeInterface $performDate): self
+    public function setStartDate(\DateTimeInterface $startDate): self
     {
-        $this->performDate = $performDate;
+        $this->startDate = $startDate;
+
+        return $this;
+    }
+
+    public function getEndDate(): ?\DateTimeInterface
+    {
+        return $this->endDate;
+    }
+
+    public function setEndDate(\DateTimeInterface $endDate): self
+    {
+        $this->endDate = $endDate;
+
+        return $this;
+    }
+    public function getDuration(): ?string
+    {
+        return $this->duration;
+    }
+
+    public function setDuration(string $duration): self
+    {
+        $this->duration = $duration;
 
         return $this;
     }
