@@ -3,9 +3,9 @@
 {% block title %}Liste des numéros{% endblock %}
 
 {% block body %}
+    {% include 'admin/_nav_admin.html.twig' %}
     <h1>Liste des numéros</h1>
     <a class="btn ml-1 mb-3" href="{{ path('act_new') }}">Créer un  numéro</a>
-    <a class="btn mb-3" href="{{ path('admin_index') }}">Pas d'accueil</a>
     <table class="table">
         <thead>
             <tr>

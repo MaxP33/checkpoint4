@@ -3,9 +3,9 @@
 {% block title %}Event index{% endblock %}
 
 {% block body %}
+    {% include 'admin/_nav_admin.html.twig' %}
     <h1>Liste des évènements</h1>
     <a class="btn ml-1 mb-3" href="{{ path('event_new') }}">Créer un évènement</a>
-    <a class="btn mb-3" href="{{ path('admin_index') }}">Pas d'accueil</a>
     <table class="table">
         <thead>
             <tr>
