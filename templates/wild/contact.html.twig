@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contact{% endblock %}
+
+{% block body %}
+    {% include '_nav.html.twig' %}
+    {{ form_start(form, {'attr' : {'class' : 'w-50'}}) }}
+    {{ form_widget(form) }}
+    <button class="btn">{{ button_label|default('Envoyer') }}</button>
+    {{ form_end(form) }}
+{% endblock %}
