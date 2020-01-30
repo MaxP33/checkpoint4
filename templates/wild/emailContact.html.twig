@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+{% apply inky_to_html %}
+    <container style="font-family: Helvetica Neue, sans-serif;">
+        <container style="display: flex; justify-content: center; margin-bottom: 2vh;">
+                   <row>
+                       <columns>
+                           <img src="https://a1s.unicdn.net/polopoly_fs/1.1037895.1528818416!/image.png?width=350&derivative=800x600" style="width: 50vw;">
+                       </columns>
+                   </row>
+        </container>
+        <container style="margin: 0 15vw;">
+            <h1>Nouvelle demande d'informations</h1>
+            <p>
+                {{ contactData.prenom }} {{ contactData.nom }}  a envoyé le message suivant :
+            </p>
+            <p>
+                {{ contactData.message }}
+            </p>
+            <p><a href="mailto:{{ contactData.email }}">Lui répondre</a></p>
+        </container>
+    </container>
+{% endapply %}
+</body>
+</html>
