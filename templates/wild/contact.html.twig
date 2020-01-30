@@ -4,8 +4,21 @@
 
 {% block body %}
     {% include '_nav.html.twig' %}
-    {{ form_start(form, {'attr' : {'class' : 'w-50'}}) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Envoyer') }}</button>
-    {{ form_end(form) }}
+    <div>
+        <div class="background-contact">
+            <div class="container mt-5">
+                <div class="d-flex justify-content-center">
+                    <h1>Contactez-nous</h1>
+                </div>
+                <div class="d-flex justify-content-center">
+                    {{ form_start(form, {'attr' : {'class' : 'w-50'}}) }}
+                    {{ form_widget(form) }}
+                    <div class="d-flex justify-content-end">
+                        <button class="btn">{{ button_label|default('Envoyer') }}</button>
+                    </div>
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
