@@ -9,13 +9,13 @@ use Doctrine\Common\Persistence\ObjectManager;
 class PriceFixtures extends Fixture
 {
     const PRICES = [
-        'Enfants' => [
+        'Enfant' => [
             'price' => 10,
         ],
-        'Adultes' => [
+        'Adulte' => [
             'price' => 20,
         ],
-        'Seniors' => [
+        'Senior' => [
             'price' => 16,
         ],
     ];
