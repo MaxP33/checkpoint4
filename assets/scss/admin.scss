@@ -5,3 +5,15 @@
     font-family: $helvetica;
   }
 }
+li.active{
+  .page-link {
+    background-color: $gold;
+    border-color: $gold;
+    color: $white;
+  }
+}
+.disabled.page-item, .page-item {
+  .page-link {
+    color: $gold;
+  }
+}
