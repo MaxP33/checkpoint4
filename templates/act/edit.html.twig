@@ -3,12 +3,13 @@
 {% block title %}Editer un numéro{% endblock %}
 
 {% block body %}
-    <h1>Editer</h1>
-
+    <div class="d-flex justify-content-center mt-2">
+        <h1>Editer</h1>
+    </div>
     {{ include('act/_form.html.twig', {'button_label': 'Modifier'}) }}
 
-    <div class="d-flex mt-4">
+    <div class="d-flex mb-1">
+        <a class="btn mr-3" href="{{ path('act_index') }}">Liste des numéros</a>
         {{ include('act/_delete_form.html.twig') }}
-        <a class="btn ml-3" href="{{ path('act_index') }}">Liste des numéros</a>
     </div>
 {% endblock %}

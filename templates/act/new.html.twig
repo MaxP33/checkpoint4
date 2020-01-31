@@ -3,11 +3,13 @@
 {% block title %}Nouveau numéro{% endblock %}
 
 {% block body %}
-    <h1>Créer un numéro</h1>
+    <div class="d-flex justify-content-center mt-2">
+        <h1>Créer un numéro</h1>
+    </div>
 
     {{ include('act/_form.html.twig') }}
 
-    <div class="d-flex mt-4">
+    <div class="d-flex mb-1">
         <a class="btn" href="{{ path('act_index') }}">Liste des numéros</a>
     </div>
 {% endblock %}
