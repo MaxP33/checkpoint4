@@ -5,9 +5,21 @@
 @import "login";
 @import "admin";
 @import "event";
+@import "casino";
+
 .btn {
   background-color: $gold;
   color: $white;
   font-family: $helvetica;
   font-weight: bold;
+}
+
+body {
+  h1, h2, h3, h4, h5, h6 {
+   font-family: $rufina;
+    font-size: 1.7rem;
+    color: $gold;
+  }
+  font-family: $helvetica;
+  font-size: 1.2rem;
 }
