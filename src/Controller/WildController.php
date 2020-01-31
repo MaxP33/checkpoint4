@@ -5,9 +5,12 @@ namespace App\Controller;
 use App\Entity\Act;
 use App\Entity\Event;
 use App\Form\ContactType;
+use App\Form\GameFormType;
+use App\Service\CasinoGame;
 use App\Service\Mailer;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -75,5 +78,45 @@ class WildController extends AbstractController
         return $this->render('wild/contact.html.twig', [
             'form' => $form->createview()
         ]);
+    }
+
+    /**
+     * @Route("/game", name="_game", methods={"GET", "POST"})
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function displayGame(Request $request): Response
+    {
+        $form = $this->createForm(GameFormType::class);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $gameData = $form->getData();
+        }
+
+        return $this->render('wild/game.html.twig', [
+            'form' => $form->createview()
+        ]);
+    }
+
+    /**
+     * @Route("/play")
+     * @param CasinoGame $casinoGame
+     * @param Request $request
+     * @return JsonResponse
+     */
+    public function playGame(CasinoGame $casinoGame, Request $request)
+    {
+        $choicesFromClient = json_decode(
+            $request->getContent(),
+            true
+        );
+
+
+        $gameIssue = $casinoGame->playGame($choicesFromClient);
+
+        return new JsonResponse([
+            'gameIssue' => $gameIssue,
+        ], 200);
     }
 }
