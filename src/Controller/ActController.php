@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Act;
 use App\Form\ActType;
 use App\Repository\ActRepository;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -17,11 +18,16 @@ class ActController extends AbstractController
 {
     /**
      * @Route("", name="act_index", methods={"GET"})
+     * @param ActRepository $actRepository
+     * @param PaginatorInterface $paginator
+     * @param Request $request
+     * @return Response
      */
-    public function index(ActRepository $actRepository): Response
+    public function index(ActRepository $actRepository, PaginatorInterface $paginator, Request $request): Response
     {
+        $acts = $paginator->paginate($actRepository->findAll(), $request->query->getInt('page', 1), 3);
         return $this->render('act/index.html.twig', [
-            'acts' => $actRepository->findAll(),
+            'acts' => $acts,
         ]);
     }
 
