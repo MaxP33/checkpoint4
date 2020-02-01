@@ -4,61 +4,63 @@
 
 {% block body %}
     {% include '_nav.html.twig' %}
-    <h1 class="container mx-auto my-5">Programme</h1>
-
-{% for act in acts %}
-    {% if loop.index is odd %}
-    <div class="row no-gutters">
-    <div class="col-sm"></div>
-    <div class="col-sm-1 text-center flex-column d-none d-sm-flex">
-        <div class="row h-50">
-            <div class="col border-right">&nbsp;</div>
-            <div class="col">&nbsp;</div>
-        </div>
-        <h5 class="m-2">
-            <span class="badge badge-pill bg-light border">&nbsp;</span>
-        </h5>
-        <div class="row h-50">
-            <div class="col border-right">&nbsp;</div>
-            <div class="col">&nbsp;</div>
-        </div>
-    </div>
-    <div class="col-sm py-2">
-        <div class="card w-75">
-            <div class="card-body">
-                <img class="card-img-top" src="/uploads/{{ act.actImgName }}" alt="Card image cap">
-                <h3 class="card-title">{{ act.name }}</h3>
-                <p>{{ act.description }}</p>
+    <div class="mb-5">
+        <h1 class="container mx-auto my-5">Programme</h1>
+        {% for act in acts %}
+            {% if loop.index is odd %}
+            <div class="row no-gutters">
+            <div class="col-sm"></div>
+            <div class="col-sm-1 text-center flex-column d-none d-sm-flex">
+                <div class="row h-50">
+                    <div class="col border-right">&nbsp;</div>
+                    <div class="col">&nbsp;</div>
+                </div>
+                <h5 class="m-2">
+                    <span class="badge badge-pill bg-light border">&nbsp;</span>
+                </h5>
+                <div class="row h-50">
+                    <div class="col border-right">&nbsp;</div>
+                    <div class="col">&nbsp;</div>
+                </div>
             </div>
-        </div>
-    </div>
-</div>
-    {% else %}
-    <div class="row no-gutters">
-        <div class="col-sm py-2">
-            <div class="card w-75">
-                <div class="card-body">
-                    <img class="card-img-top" src="/uploads/{{ act.actImgName }}" alt="Card image cap">
-                    <h3 class="card-title">{{ act.name }}</h3>
-                    <p>{{ act.description }}</p>
+            <div class="col-sm py-2">
+                <div class="card w-75">
+                    <div class="card-body">
+                        <img class="card-img-top" src="/uploads/{{ act.actImgName }}" alt="Card image cap">
+                        <h3 class="card-title">{{ act.name }}</h3>
+                        <p>{{ act.description }}</p>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="col-sm-1 text-center flex-column d-none d-sm-flex">
-            <div class="row h-50">
-                <div class="col border-right">&nbsp;</div>
-                <div class="col">&nbsp;</div>
+            {% else %}
+            <div class="row no-gutters">
+                <div class="col-sm py-2">
+                    <div class="card w-75">
+                        <div class="card-body">
+                            <img class="card-img-top" src="/uploads/{{ act.actImgName }}" alt="Card image cap">
+                            <h3 class="card-title">{{ act.name }}</h3>
+                            <p>{{ act.description }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-1 text-center flex-column d-none d-sm-flex">
+                    <div class="row h-50">
+                        <div class="col border-right">&nbsp;</div>
+                        <div class="col">&nbsp;</div>
+                    </div>
+                    <h5 class="m-2">
+                        <span class="badge badge-pill bg-light border">&nbsp;</span>
+                    </h5>
+                    <div class="row h-50">
+                        <div class="col border-right">&nbsp;</div>
+                        <div class="col">&nbsp;</div>
+                    </div>
+                </div>
+                <div class="col-sm"></div>
             </div>
-            <h5 class="m-2">
-                <span class="badge badge-pill bg-light border">&nbsp;</span>
-            </h5>
-            <div class="row h-50">
-                <div class="col border-right">&nbsp;</div>
-                <div class="col">&nbsp;</div>
-            </div>
-        </div>
-        <div class="col-sm"></div>
+            {% endif %}
+        {% endfor %}
     </div>
-    {% endif %}
-    {% endfor %}
+    {% include '_footer.html.twig' %}
 {% endblock %}

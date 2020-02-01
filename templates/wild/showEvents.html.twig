@@ -4,27 +4,30 @@
 
 {% block body %}
     {% include '_nav.html.twig' %}
-    <h1 class="container mx-auto mt-4">Agenda</h1>
-    <div class="container admin-home-cards row d-flex justify-content-center mx-auto mt-4 pl-0">
-    {% for event in events %}
-        {% if event.endDate|date("Y-m-d") >= "now"|date("Y-m-d") %}
-        <div class="col-sm-9 col-lg-4 mb-5">
-            <div class="card">
-                <img class="card-img-top" src="/uploads/{{ event.eventImgName }}" alt="Card image cap">
-                <div class="card-body d-flex justify-content-center align-items-start flex-column">
-                    <h3 class="card-title">{{ event.location }}</h3>
-                    <p class="card-text">{{ event.description }}</p>
-                    <div class="d-flex flex-column"> <strong>Prix :</strong>
-                        <div class="d-flex flex-column">
-                            {% for price in event.prices %}
-                                <p class="my-1">{{ price.name }} {{ price.price }} € </p>
-                            {% endfor %}
+    <div class="mb-5">
+        <h1 class="container mx-auto mt-4">Agenda</h1>
+        <div class="container admin-home-cards row d-flex justify-content-center mx-auto mt-4 pl-0">
+        {% for event in events %}
+            {% if event.endDate|date("Y-m-d") >= "now"|date("Y-m-d") %}
+            <div class="col-sm-9 col-lg-4 mb-5">
+                <div class="card">
+                    <img class="card-img-top" src="/uploads/{{ event.eventImgName }}" alt="Card image cap">
+                    <div class="card-body d-flex justify-content-center align-items-start flex-column">
+                        <h3 class="card-title">{{ event.location }}</h3>
+                        <p class="card-text">{{ event.description }}</p>
+                        <div class="d-flex flex-column"> <strong>Prix :</strong>
+                            <div class="d-flex flex-column">
+                                {% for price in event.prices %}
+                                    <p class="my-1">{{ price.name }} {{ price.price }} € </p>
+                                {% endfor %}
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+            {% endif %}
+        {% endfor %}
         </div>
-        {% endif %}
-    {% endfor %}
     </div>
+    {% include '_footer.html.twig' %}
 {% endblock %}
