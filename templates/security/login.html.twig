@@ -24,10 +24,11 @@
                     <input type="hidden" name="_csrf_token"
                            value="{{ csrf_token('authenticate') }}"
                     >
-                    <div class="d-flex justify-content-center">
+                    <div class="d-flex justify-content-center align-items-center flex-column">
                         <button class="btn btn-lg login-btn my-3 " type="submit">
                             Se connecter
                         </button>
+                        <a class="login-a" href="{{ path('app_register') }}">Première connexion ? Cliquez ici</a>
                     </div>
                 </form>
             </div>
