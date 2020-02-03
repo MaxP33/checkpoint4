@@ -12,6 +12,9 @@
 1. Clone this project
 2. Run `composer install`
 3. Run `yarn install`
+4. Create `.env.local` with mysql config (user, password, database name)
+5. Run `bin/console d:d:c`
+6. Run `bin/console d:m:m`
 
 ### Working
 
